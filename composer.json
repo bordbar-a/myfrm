@@ -1,0 +1,19 @@
+{
+    "name": "ali-pc/myfrm",
+    "authors": [
+        {
+            "name": "ali",
+            "email": "abordbar72@gmail.com"
+        }
+    ],
+    "require": {
+        "catfan/medoo": "^1.7",
+        "hekmatinasser/verta": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+
+}
