@@ -3,6 +3,7 @@
 namespace App\Services\Router;
 
 use App\Core\Request;
+use App\Services\View\View;
 
 class Router
 {
@@ -15,7 +16,7 @@ class Router
 
         if (! self::route_exist($current_uri)) {
             header("HTTP/1.0 404 Not Found");
-            echo "404 error :) ";
+            View::load('errors.404');
             die();
         }
 
@@ -63,7 +64,6 @@ class Router
         }
 
         $controlerObj->$method($request);
-    
     }// end of start method
 
 
@@ -78,8 +78,7 @@ class Router
     {
         $current_uri =  str_replace(SUB_DIRECTORY, '', $_SERVER['REQUEST_URI']);
         $current_uri = strtok($current_uri, '?');
-
-        return $current_uri;
+        return rtrim($current_uri,'/');
     }
 
 
@@ -87,7 +86,6 @@ class Router
     public static function route_exist($current_uri)
     {
         $routes  = self::get_all_route();
-
         return key_exists($current_uri, $routes);
     }
 

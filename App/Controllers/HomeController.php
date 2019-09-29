@@ -3,11 +3,16 @@
 namespace App\Controllers;
 
 use App\Core\Request;
+use App\Services\View\View;
 
 class HomeController {
 
     public function index(Request $request)
     {
-        echo "i am in index method  in HomeController class";
+
+        $array = array(
+            'ali' => 'salam',
+        );
+        View::load('index', $array);
     }
 }

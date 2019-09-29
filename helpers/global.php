@@ -34,15 +34,6 @@ function GetCallingMethodName()
 }
 
 
-function site_url($uri)
-{
-    return BASE_URL . $uri;
-}
-
-
-
-
-
 function removeEmptyMembers($array)
 {
     return array_filter($array, function($item){
@@ -51,3 +42,26 @@ function removeEmptyMembers($array)
     });
 
 }
+
+
+
+
+function site_url($uri=''){
+    return BASE_URL . $uri;
+}
+
+
+function admin_url($uri=''){
+    return site_url('admin/' . $uri);
+}
+
+
+
+function assets($filepath){
+    return site_url('views/' . DEFAULT_THEME . '/assets/' . $filepath);
+}
+
+function assets_admin($filepath){
+    return site_url('views/admin/assets/' . $filepath);
+}
+

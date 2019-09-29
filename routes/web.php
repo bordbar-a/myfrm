@@ -2,23 +2,21 @@
 
 return array (
 
-    '/' =>[
+    '' =>[
         'method' => 'get',
         'target' => 'HomeController@index',
         'middleware'=>'FirefoxBlocker'
     ],
-    
+
+
+
+
+// admin route 
+
     '/admin' =>[
         'method' => 'get|post',
-        'target' => 'HomeController@index'
+        'target' => 'Admin\DashboardController@index'
     ],
-    '/first' =>[
-        'method' => 'get|post',
-        'target' => 'HomeController@index'
-    ],
-    '/secound' =>[
-        'method' => 'get|post',
-        'target' => 'HomeController@index'
-    ],
-    
+
+// end of admin route
 );
