@@ -25,7 +25,7 @@
 		<link href="<?= assets_admin("plugins/bootstrap/RTL/bootstrap-rtl.min.css"); ?>" rel="stylesheet" type="text/css" />
         <link href="<?= assets_admin("plugins/bootstrap/RTL/bootstrap-flipped.min.css"); ?>" rel="stylesheet" type="text/css" />
         <link href="<?= assets_admin("css/layout-RTL.css"); ?>" rel="stylesheet" type="text/css" />
-
+		<?= isset($header) ?: ''?>
 	</head>
 	<!--
 		.boxed = boxed version
@@ -122,10 +122,10 @@
 	
 		<!-- JAVASCRIPT FILES -->
 
-		<?= assets_admin("js/app.js") ?>
+	
 		<script type="text/javascript">var plugin_path = '<?= assets_admin("plugins/") ?>';</script>
 		<script type="text/javascript" src="<?= assets_admin("plugins/jquery/jquery-2.1.4.min.js") ?>"></script>
 		<script type="text/javascript" src="<?= assets_admin("js/app.js") ?>"></script>
-
+		<?= isset($footer) ?: ''?>
 	</body>
 </html>

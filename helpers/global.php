@@ -65,3 +65,25 @@ function assets_admin($filepath){
     return site_url('views/admin/assets/' . $filepath);
 }
 
+function array_of_object($arr2d){
+
+    $array_of_objects = array();
+
+    foreach($array_of_objects as $arr){
+        $array_of_objects[] = (object)$arr;
+    }
+    return $array_of_objects;
+}
+
+
+
+
+// function storage_url($filename)
+// {
+//     return site_url("storage/$filename");
+// }
+
+// function storage_path($filename)
+// {
+//     return STORAGE_PATH . $filename;
+// }

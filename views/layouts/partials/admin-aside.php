@@ -20,21 +20,22 @@
                     <i class="main-icon fa fa-dashboard"></i> <span>داشبورد</span>
                 </a>
             </li>
-            <li class="active">
+            <li class="">
                 <a href="#">
                     <i class="fa fa-menu-arrow pull-right"></i>
-                    <i class="main-icon fa fa-book"></i> <span>صفحات</span>
+                    <i class="main-icon fa fa-th-list"></i> <span>دسته بندی ها</span>
                 </a>
                 <ul>
                     <!-- submenus -->
-                    <li><a href="page-invoice.html">صورت حساب</a></li>
+                    <li><a href="<?= admin_url('category/add'); ?>">افزودن</a></li>
+                    <li><a href="<?= admin_url('category/list'); ?>">لیست دسته بندی ها</a></li>
                 </ul>
             </li>
         </ul>
 
         <!-- SECOND MAIN LIST -->
         <h3>دیگر قسمت ها</h3>
-        <ul class="nav nav-list">
+        <!-- <ul class="nav nav-list">
             <li>
                 <a href="calendar.html">
                     <i class="main-icon fa fa-calendar"></i>
@@ -47,7 +48,7 @@
                     <span class="label label-danger pull-right">خانه</span> <span>مجموعه قالب ها</span>
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
     </nav>
 
