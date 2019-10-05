@@ -1,9 +1,9 @@
 <section id="middle">
     <!-- page title -->
     <header id="page-header">
-        <h1>افزودن دسته بندی</h1>
+        <h1>افزودن پست</h1>
         <ol class="breadcrumb">
-            <li><a href="#">دسته بندی</a></li>
+            <li><a href="#">پست</a></li>
             <li class="active">افزودن</li>
         </ol>
     </header>
@@ -19,12 +19,12 @@
                 <!-- ------ -->
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-transparent">
-                        <strong>افزودن دسته بندی</strong>
+                        <strong>پست</strong>
                     </div>
 
                     <div class="panel-body">
-                    <a href="<?= admin_url('category/list'); ?>"> <button type="button" class="btn btn-primary btn-lg margin-bottom-30">‌لیست دسته‌بندی‌ها</button></a>
-                        <form action="<?= admin_url('category/save') ?>" method="post" enctype="multipart/form-data"
+                    <a href="<?= admin_url('post/list'); ?>"> <button type="button" class="btn btn-primary btn-lg margin-bottom-30">‌لیست پست‌ها</button></a>
+                        <form action="<?= admin_url('post/save') ?>" method="post" enctype="multipart/form-data"
                             data-success="Sent! Thank you!" data-toastr-position="top-right" novalidate="novalidate">
                             <fieldset>
                                 <!-- required [php action request] -->
@@ -32,7 +32,7 @@
 
                                 <div class="row">
                                     <div class="form-group">
-                                        <div class="col-md-6 col-sm-6">
+                                        <div class="col-md-10 col-sm-10">
                                             <label>عنوان</label>
                                             <input type="text" name="title" value="" class="form-control required">
                                         </div>
@@ -40,9 +40,17 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>slug</label>
-                                            <input type="text" name="slug" value="" class="form-control required">
+                                        <div class="col-md-10 col-sm-10">
+                                            <label>محتوا</label>
+                                            <textarea class="summernote form-control" name="content" data-height="200" data-lang="en-US"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-sm-10">
+                                            <label>موضوع</label>
+                                            <input type="text" name="category_id" value="" class="form-control required">
                                         </div>
                                     </div>
                                 </div>

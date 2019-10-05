@@ -66,6 +66,19 @@ class Request
     }
 
 
+    public function check_keys_exists($keys)
+    {
+        $keys = explode('|', $keys);
+
+        foreach ($keys as $key) {
+            if(! $this->key_exists($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public function isAjax()
     {
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {

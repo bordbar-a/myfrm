@@ -55,4 +55,9 @@ class BaseModel implements CRUD
     {
         return count($this->findBy($field, $value));
     }
+
+
+    public function find_by_primary_key($id){
+        return self::read('*' , array(static::$primary_key => $id))[0];
+    }
 }

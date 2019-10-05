@@ -10,9 +10,7 @@ class HomeController {
     public function index(Request $request)
     {
 
-        $array = array(
-            'ali' => 'salam',
-        );
-        View::load('index', $array);
+       
+        View::load('index', array());
     }
 }

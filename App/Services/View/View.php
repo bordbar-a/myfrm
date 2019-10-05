@@ -18,7 +18,6 @@ class View
         extract($data);
         include_once $full_view_path;
         $view = ob_get_clean();
-
         if(is_null($layout)){
             echo $view;
         }else {

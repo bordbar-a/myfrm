@@ -1,0 +1,30 @@
+.flash-messages {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    cursor: default;
+}
+.flash-message {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-top: 7px;
+    border-radius: 5px;
+   
+}
+
+.flash-message.flash-info {
+    background: #3576a8;
+    border: 1px solid #3576a8;
+    color: #fff;
+}
+.flash-message.flash-error {
+    background: #b40a0a;
+    border: 1px solid #b40a0a;
+    color: #fff;
+}
+.flash-message.flash-success {
+background: #1fb056;
+    border: 1px solid #1fb056;
+    color: #fff;
+}

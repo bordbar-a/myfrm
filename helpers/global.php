@@ -17,10 +17,13 @@ function config($name)
 
 function where()
 {
+    
     $e = new Exception();
     $trace = $e->getTrace();
     $last_call = $trace[0];
-    return $last_call['file'] . "---- line " . $last_call['line'];
+    var_dump($last_call);
+    var_dump(debug_backtrace());
+    return $last_call['file'] . " ---- line " . $last_call['line'];
 }
 
 
@@ -51,6 +54,21 @@ function site_url($uri=''){
 }
 
 
+function theme_url($uri = ''){
+
+    $active_theme = DEFAULT_THEME;
+    return site_url("view/$active_theme/$uri");
+}
+
+
+
+function theme_path($uri){
+    $uri = str_replace('|' , DIRECTORY_SEPARATOR , $uri);
+    $active_theme = DEFAULT_THEME;
+    return BASE_VIEW_PATH . DIRECTORY_SEPARATOR . $active_theme . DIRECTORY_SEPARATOR . $uri;
+}
+
+
 function admin_url($uri=''){
     return site_url('admin/' . $uri);
 }
@@ -58,7 +76,8 @@ function admin_url($uri=''){
 
 
 function assets($filepath){
-    return site_url('views/' . DEFAULT_THEME . '/assets/' . $filepath);
+    $active_theme = DEFAULT_THEME;
+    return site_url('views/' . $active_theme . '/assets/' . $filepath);
 }
 
 function assets_admin($filepath){
@@ -66,10 +85,10 @@ function assets_admin($filepath){
 }
 
 function array_of_object($arr2d){
-
+    
     $array_of_objects = array();
 
-    foreach($array_of_objects as $arr){
+    foreach($arr2d as $arr){
         $array_of_objects[] = (object)$arr;
     }
     return $array_of_objects;

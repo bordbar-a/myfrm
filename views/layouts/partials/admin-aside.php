@@ -31,6 +31,17 @@
                     <li><a href="<?= admin_url('category/list'); ?>">لیست دسته بندی ها</a></li>
                 </ul>
             </li>
+            <li class="">
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-th-list"></i> <span>پست‌ها</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li><a href="<?= admin_url('post/add'); ?>">افزودن پست</a></li>
+                    <li><a href="<?= admin_url('post/list'); ?>">لیست پست‌‌ها</a></li>
+                </ul>
+            </li>
         </ul>
 
         <!-- SECOND MAIN LIST -->

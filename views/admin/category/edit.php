@@ -1,10 +1,10 @@
 <section id="middle">
     <!-- page title -->
     <header id="page-header">
-        <h1>افزودن دسته بندی</h1>
+        <h1>ویرایش دسته بندی</h1>
         <ol class="breadcrumb">
             <li><a href="#">دسته بندی</a></li>
-            <li class="active">افزودن</li>
+            <li class="active">ویرایش</li>
         </ol>
     </header>
     <!-- /page title -->
@@ -19,12 +19,12 @@
                 <!-- ------ -->
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-transparent">
-                        <strong>افزودن دسته بندی</strong>
+                        <strong>ویرایش دسته بندی</strong>
                     </div>
 
                     <div class="panel-body">
-                    <a href="<?= admin_url('category/list'); ?>"> <button type="button" class="btn btn-primary btn-lg margin-bottom-30">‌لیست دسته‌بندی‌ها</button></a>
-                        <form action="<?= admin_url('category/save') ?>" method="post" enctype="multipart/form-data"
+    <?= $category->title ?? '' ?>
+                        <form action="<?= admin_url("category/update?id={$category->id}") ?>" method="post" enctype="multipart/form-data"
                             data-success="Sent! Thank you!" data-toastr-position="top-right" novalidate="novalidate">
                             <fieldset>
                                 <!-- required [php action request] -->
@@ -34,7 +34,7 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6">
                                             <label>عنوان</label>
-                                            <input type="text" name="title" value="" class="form-control required">
+                                            <input type="text" name="title" value="<?= $category->title ?? '' ?>" class="form-control required">
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6">
                                             <label>slug</label>
-                                            <input type="text" name="slug" value="" class="form-control required">
+                                            <input type="text" name="slug" value="<?= $category->slug ?? '' ?>" class="form-control required">
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
 
                             <div class="row">
                                 <div class="col-md-3 ">
-                                    <button type="submit" class="btn btn-primary margin-top-30 ">افزودن</button>
+                                    <button type="submit" class="btn btn-primary margin-top-30 ">ویرایش</button>
                                 </div>
                             </div>
 
