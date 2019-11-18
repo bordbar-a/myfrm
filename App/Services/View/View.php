@@ -20,8 +20,12 @@ class View
         $view = ob_get_clean();
         if(is_null($layout)){
             echo $view;
-        }else {
-            $layout_full_view_path = BASE_VIEW_PATH . 'layouts' . DIRECTORY_SEPARATOR . "$layout.php";
+        }elseif($layout=='admin') {
+            $layout_full_view_path = BASE_VIEW_PATH . 'layouts' . DIRECTORY_SEPARATOR . $layout . DIRECTORY_SEPARATOR . 'index.php';
+            include_once $layout_full_view_path;
+        }
+        else {
+            $layout_full_view_path = BASE_VIEW_PATH . 'layouts' . DIRECTORY_SEPARATOR .'themes' . DIRECTORY_SEPARATOR . get_active_theme() . DIRECTORY_SEPARATOR . 'index.php';
             include_once $layout_full_view_path;
         }
     }

@@ -25,12 +25,12 @@ class CategoryController
         $data= array(
             'categories' => $categories,
         );
-        View::load_from_base('admin.category.list', $data, 'layout-admin');
+        View::load_from_base('admin.category.list', $data, 'admin');
     }
     
     public function add(Request $request)
     {
-        View::load_from_base('admin.category.add', array(), 'layout-admin');
+        View::load_from_base('admin.category.add', array(), 'admin');
     }
 
     public function save(Request $request)
@@ -56,7 +56,7 @@ class CategoryController
         $data= array(
             'category' => $category,
         );
-        View::load_from_base('admin.category.edit', $data, 'layout-admin');
+        View::load_from_base('admin.category.edit', $data, 'admin');
     }
 
     public function update(Request $request)

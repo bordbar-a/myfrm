@@ -933,7 +933,6 @@
                                     <li><a href="shortcode-toggles.html">منوهای کشویی</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </li>
                 </ul>
@@ -942,6 +941,5 @@
                 <a id="sidepanel_btn" href="#" class="fa fa-bars"></a>
             </li>
         </ul>
-
     </nav>
 </div>

@@ -9,6 +9,6 @@ class HomeController {
 
     public function index(Request $request)
     {
-        View::load('index', array());
+        View::load('index', array() , 'themes');
     }
 }

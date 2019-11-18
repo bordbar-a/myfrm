@@ -62,10 +62,9 @@ function theme_url($uri = ''){
 
 
 
-function theme_path($uri){
+function theme_path($uri , $theme){
     $uri = str_replace('|' , DIRECTORY_SEPARATOR , $uri);
-    $active_theme = DEFAULT_THEME;
-    return BASE_VIEW_PATH . DIRECTORY_SEPARATOR . $active_theme . DIRECTORY_SEPARATOR . $uri;
+    return BASE_VIEW_PATH .'layouts' . DIRECTORY_SEPARATOR. 'themes'. DIRECTORY_SEPARATOR .  $theme . DIRECTORY_SEPARATOR . $uri;
 }
 
 
@@ -76,7 +75,7 @@ function admin_url($uri=''){
 
 
 function assets($filepath){
-    $active_theme = DEFAULT_THEME;
+    $active_theme = get_active_theme();
     return site_url('views/' . $active_theme . '/assets/' . $filepath);
 }
 
@@ -99,6 +98,10 @@ function get_date($format='Y-m-d H:i:s'){
     return date($format);
 }
 
+
+function get_active_theme(){
+    return DEFAULT_THEME;
+}
 
 
 // function storage_url($filename)

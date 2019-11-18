@@ -47,7 +47,7 @@
 				ASIDE 
 				Keep it outside of #wrapper (responsive purpose)
 			-->
-        <?php include "partials/admin-aside.php" ?>
+        <?php include "partials/aside.php" ?>
         <!-- /ASIDE -->
 
 

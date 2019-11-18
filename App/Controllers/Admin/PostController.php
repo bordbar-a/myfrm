@@ -29,12 +29,12 @@ class PostController
         $data= array(
             'posts' => $posts,
         );
-        View::load_from_base('admin.Post.list', $data, 'layout-admin');
+        View::load_from_base('admin.Post.list', $data, 'admin');
     }
     
     public function add(Request $request)
     {
-        View::load_from_base('admin.post.add', array(), 'layout-admin');
+        View::load_from_base('admin.post.add', array(), 'admin');
     }
 
     public function save(Request $request)
@@ -58,7 +58,7 @@ class PostController
         $data= array(
             'post' => $post,
         );
-        View::load_from_base('admin.post.edit', $data, 'layout-admin');
+        View::load_from_base('admin.post.edit', $data, 'admin');
     }
 
     public function update(Request $request)

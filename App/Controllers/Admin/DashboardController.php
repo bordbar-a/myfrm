@@ -9,6 +9,6 @@ class DashboardController
     public function index(Request $request)
     {
         $data = array();
-        View::load_from_base("admin.dashboard", $data,'layout-admin');
+        View::load_from_base("admin.dashboard", $data,'admin');
     }
 }
