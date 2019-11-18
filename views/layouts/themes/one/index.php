@@ -142,7 +142,7 @@
                     <button type="button" class="btn btn-info">پنل ادمین</button>
                 </a>
 
-            <?= include_once theme_path('partials|menu.php','one'); ?>
+            <?php include_once theme_path('partials|menu.php','one'); ?>
             </div>
         </header>
         <!-- /Top Nav -->
@@ -219,7 +219,7 @@
 
 
     <!-- FOOTER -->
-    <?= include_once theme_path('partials|footer.php','one') ?>
+    <?php include_once theme_path('partials|footer.php','one') ?>
     <!-- /FOOTER -->
 
 </div>
