@@ -73,6 +73,12 @@ function admin_url($uri=''){
 }
 
 
+function storage_url($path){
+    $path_url = str_replace(DIRECTORY_SEPARATOR , '/' , $path);
+    return site_url('storage/'.$path);
+}
+
+
 
 function assets($filepath){
     $active_theme = get_active_theme();
