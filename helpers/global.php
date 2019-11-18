@@ -95,6 +95,10 @@ function array_of_object($arr2d){
 }
 
 
+function get_date($format='Y-m-d H:i:s'){
+    return date($format);
+}
+
 
 
 // function storage_url($filename)

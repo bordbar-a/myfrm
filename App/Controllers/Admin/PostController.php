@@ -63,8 +63,15 @@ class PostController
 
     public function update(Request $request)
     {
-        if ($request->key_exists('title') && $request->key_exists('slug')) {
-            $this->model->update(['title'=> $request->title,'slug'=>$request->slug], ['id'=>$request->id]);
+        if ($request->check_keys_exists('title|content|category_id')) {
+
+            $updatedPost= array(
+                'title'=>$request->title,
+                'content'=>$request->content,
+                'category_id'=>$request->category_id,
+                'updated_at'=>get_date(),
+            );
+            $this->model->update($updatedPost, ['id'=>$request->id]);
         }
 
         Request::redirect('admin/post/list');

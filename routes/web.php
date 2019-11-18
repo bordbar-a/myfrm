@@ -2,7 +2,7 @@
 
 return array (
 
-    '' =>[
+    '/' =>[
         'method' => 'get',
         'target' => 'HomeController@index',
         'middleware'=>'FirefoxBlocker'

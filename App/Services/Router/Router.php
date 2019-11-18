@@ -13,7 +13,6 @@ class Router
     {
         $routes = self::get_all_route();
         $current_uri = self::get_current_route();
-
         if (! self::route_exist($current_uri)) {
             header("HTTP/1.0 404 Not Found");
             View::load('errors.404');
@@ -78,7 +77,8 @@ class Router
     {
         $current_uri =  str_replace(SUB_DIRECTORY, '', $_SERVER['REQUEST_URI']);
         $current_uri = strtok($current_uri, '?');
-        return rtrim($current_uri,'/');
+         return ($current_uri =='/') ? '/' : rtrim($current_uri,'/');
+
     }
 
 
