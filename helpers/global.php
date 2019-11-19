@@ -17,12 +17,9 @@ function config($name)
 
 function where()
 {
-    
     $e = new Exception();
     $trace = $e->getTrace();
     $last_call = $trace[0];
-    var_dump($last_call);
-    var_dump(debug_backtrace());
     return $last_call['file'] . " ---- line " . $last_call['line'];
 }
 
@@ -75,7 +72,7 @@ function admin_url($uri=''){
 
 function storage_url($path){
     $path_url = str_replace(DIRECTORY_SEPARATOR , '/' , $path);
-    return site_url('storage/'.$path);
+    return site_url('storage/'.$path_url);
 }
 
 

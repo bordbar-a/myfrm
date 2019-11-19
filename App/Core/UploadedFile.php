@@ -17,10 +17,14 @@ class UploadedFile
     public function __construct($fileName, $sub_folder = null)
     {
         $this->file = $_FILES[$fileName];
-        if($this->file['error']!=0){
-            throw new \Exception(self::error[$this->file['error']]);
+        try {
+            if ($this->file['error'] != 0) {
+                throw new \Exception(self::error[$this->file['error']]);
+            }
         }
-
+        catch (\Exception $e){
+            return false;
+        }
 
         if ($sub_folder == null){
             $sub_folder = date(self::DEFAULT_SUBFOLDER_FORMAT);
@@ -101,10 +105,19 @@ class UploadedFile
 
     }
 
+
+    public function get_file_url(){
+        return storage_url($this->path_in_storage);
+    }
+
     public function destroy()
     {
-        $full_path = BASE_STORAGE_PATH . $this->path_in_storage;
 
+        if(!$this->path_in_storage){
+            return false;
+        }
+
+        $full_path = BASE_STORAGE_PATH . $this->path_in_storage;
         if(!file_exists($full_path)){
             return;
         }
