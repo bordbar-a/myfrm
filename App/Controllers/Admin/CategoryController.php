@@ -67,7 +67,7 @@ class CategoryController
     public function update(Request $request)
     {
         $category = new Category($request->id);
-        if ($request->key_exists('title') && $request->key_exists('slug')) {
+        if ($request->check_keys_exists('title|slug')) {
 
             $category->title = $request->title;
             $category->slug = $request->slug;
@@ -89,7 +89,7 @@ class CategoryController
         $category->delete();
         if ($category->deleted_row) {
             FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $category->deleted_row. ' حذف شد ', FlashMessage::ERROR);
-            Request::redirect('admin/post/list');
+            Request::redirect('admin/category/list');
         }
         echo "problem - occored in : " . where();
     }

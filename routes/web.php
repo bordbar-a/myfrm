@@ -27,6 +27,7 @@ return array (
         'target' => 'Admin\DashboardController@index'
     ],
 
+    
     //category route 
     '/admin/category/list' =>[
         'method' => 'get',
@@ -51,6 +52,32 @@ return array (
     '/admin/category/delete' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@delete'
+    ],
+    
+    //tag route 
+    '/admin/tag/list' =>[
+        'method' => 'get',
+        'target' => 'Admin\TagController@list'
+    ],
+    '/admin/tag/add' =>[
+        'method' => 'get',
+        'target' => 'Admin\TagController@add'
+    ],
+    '/admin/tag/save' =>[
+        'method' => 'post',
+        'target' => 'Admin\TagController@save'
+    ],
+    '/admin/tag/edit' =>[
+        'method' => 'get',
+        'target' => 'Admin\TagController@edit'
+    ],
+    '/admin/tag/update' =>[
+        'method' => 'post',
+        'target' => 'Admin\TagController@update'
+    ],
+    '/admin/tag/delete' =>[
+        'method' => 'get',
+        'target' => 'Admin\TagController@delete'
     ],
 
     //post route 

@@ -13,14 +13,19 @@
     <nav id="sideNav">
         <!-- MAIN MENU -->
         <ul class="nav nav-list">
+            <!-- dashboard -->
             <li class="active">
-                <!-- dashboard -->
+
                 <a class="dashboard" href="<?= admin_url() ;?>">
                     <!-- warning - url used by default by ajax (if eneabled) -->
                     <i class="main-icon fa fa-dashboard"></i> <span>داشبورد</span>
                 </a>
             </li>
+            <!-- end  dashboard -->
+
+            <!-- categories -->
             <li class="">
+
                 <a href="#">
                     <i class="fa fa-menu-arrow pull-right"></i>
                     <i class="main-icon fa fa-th-list"></i> <span>دسته بندی ها</span>
@@ -31,7 +36,26 @@
                     <li><a href="<?= admin_url('category/list'); ?>">لیست دسته بندی ها</a></li>
                 </ul>
             </li>
+            <!-- end categories -->
+
+            <!-- tags -->
             <li class="">
+
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-th-list"></i> <span>تگ‌ها</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li><a href="<?= admin_url('tag/add'); ?>">افزودن</a></li>
+                    <li><a href="<?= admin_url('tag/list'); ?>">لیست تگ‌ها</a></li>
+                </ul>
+            </li>
+            <!-- end tags -->
+
+            <!-- posts -->
+            <li class="">
+
                 <a href="#">
                     <i class="fa fa-menu-arrow pull-right"></i>
                     <i class="main-icon fa fa-th-list"></i> <span>پست‌ها</span>
@@ -42,6 +66,8 @@
                     <li><a href="<?= admin_url('post/list'); ?>">لیست پست‌‌ها</a></li>
                 </ul>
             </li>
+            <!-- end posts -->
+
         </ul>
 
         <!-- SECOND MAIN LIST -->
