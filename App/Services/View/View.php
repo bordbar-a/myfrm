@@ -32,6 +32,6 @@ class View
 
     public static function load($view, $data =array(), $layout = null)
     {
-        self::load_from_base(DEFAULT_THEME. '.' . $view, $data, $layout);
+        self::load_from_base(get_active_theme() . '.' . $view, $data, $layout);
     }
 }

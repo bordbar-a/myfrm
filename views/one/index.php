@@ -1,63 +1,19 @@
-<!-- POST ITEM -->
-<div class="blog-post-item col-md-4 col-sm-4">
-
-    <!-- OWL SLIDER -->
-    <div class="owl-carousel buttons-autohide controlls-over"
-         data-plugin-options='{"items": 1, "autoPlay": 3000, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-        <div>
-            <img class="img-responsive" src="<?= assets('images/demo/720x400/1-min.jpg') ?>" alt="">
-        </div>
-        <div>
-            <img class="img-responsive" src="<?= assets('images/demo/720x400/2-min.jpg') ?>" alt="">
-        </div>
-    </div>
-    <!-- /OWL SLIDER -->
-
-    <h2><a href="blog-single-default.html">BLOG CAROUSEL POST</a></h2>
-
-    <ul class="blog-post-info list-inline">
-        <li>
-            <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-comment-o"></i>
-                <span class="font-lato">28</span>
-            </a>
-        </li>
-    </ul>
-
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
-
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
-        <i class="fa fa-plus"></i>
-        <span>Read More</span>
-    </a>
-
-</div>
-<!-- /POST ITEM -->
-
-
+<?php foreach ($posts as $post): ?>
 <!-- POST ITEM -->
 <div class="blog-post-item col-md-4 col-sm-4">
 
     <!-- IMAGE -->
     <figure class="margin-bottom-20">
-        <img class="img-responsive" src="<?= assets('images/demo/720x400/3-min.jpg') ?>" alt="">
+        <img class="img-responsive" src="<?= $post->image ?>" alt="">
     </figure>
 
-    <h2><a href="blog-single-default.html">BLOG IMAGE POST</a></h2>
+    <h2><a href="<?= site_url('single/post?id=' . $post->id) ?>"><?= $post->title ?></a></h2>
 
     <ul class="blog-post-info list-inline">
         <li>
             <a href="#">
                 <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
+                <span class="font-lato"><?= $post->created_at ?></span>
             </a>
         </li>
         <li>
@@ -68,166 +24,13 @@
         </li>
     </ul>
 
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
+    <?= $post->content ?>
 
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
+    <a href="<?= site_url('single/post?id=' . $post->id) ?>" class="btn btn-reveal btn-default">
         <i class="fa fa-plus"></i>
-        <span>Read More</span>
+        <span>خواندن بیشتر</span>
     </a>
 
 </div>
 <!-- /POST ITEM -->
-
-
-<!-- POST ITEM -->
-<div class="blog-post-item col-md-4 col-sm-4">
-
-    <!-- IMAGE -->
-    <figure class="margin-bottom-20">
-        <img class="img-responsive" src="<?= assets('images/demo/720x400/4-min.jpg') ?>" alt="">
-    </figure>
-
-    <h2><a href="blog-single-default.html">ANOTHER BLOG POST</a></h2>
-
-    <ul class="blog-post-info list-inline">
-        <li>
-            <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-comment-o"></i>
-                <span class="font-lato">28</span>
-            </a>
-        </li>
-    </ul>
-
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
-
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
-        <i class="fa fa-plus"></i>
-        <span>Read More</span>
-    </a>
-
-</div>
-<!-- /POST ITEM -->
-
-
-<!-- POST ITEM -->
-<div class="blog-post-item col-md-4 col-sm-4">
-
-    <!-- IMAGE -->
-    <figure class="margin-bottom-20">
-        <img class="img-responsive" src="<?= assets('images/demo/720x400/5-min.jpg') ?>" alt="">
-    </figure>
-
-    <h2><a href="blog-single-default.html">BLOG IMAGE POST</a></h2>
-
-    <ul class="blog-post-info list-inline">
-        <li>
-            <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-comment-o"></i>
-                <span class="font-lato">28</span>
-            </a>
-        </li>
-    </ul>
-
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
-
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
-        <i class="fa fa-plus"></i>
-        <span>Read More</span>
-    </a>
-
-</div>
-<!-- /POST ITEM -->
-
-
-<!-- POST ITEM -->
-<div class="blog-post-item col-md-4 col-sm-4">
-
-    <!-- IMAGE -->
-    <figure class="margin-bottom-20">
-        <img class="img-responsive" src="<?= assets('images/demo/720x400/6-min.jpg') ?>" alt="">
-    </figure>
-
-    <h2><a href="blog-single-default.html">ANOTHER BLOG POST</a></h2>
-
-    <ul class="blog-post-info list-inline">
-        <li>
-            <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-comment-o"></i>
-                <span class="font-lato">28</span>
-            </a>
-        </li>
-    </ul>
-
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
-
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
-        <i class="fa fa-plus"></i>
-        <span>Read More</span>
-    </a>
-
-</div>
-<!-- /POST ITEM -->
-
-
-<!-- POST ITEM -->
-<div class="blog-post-item col-md-4 col-sm-4">
-
-    <!-- IMAGE -->
-    <figure class="margin-bottom-20">
-        <img class="img-responsive" src="<?= assets('images/demo/720x400/7-min.jpg') ?>" alt="">
-    </figure>
-
-    <h2><a href="blog-single-default.html">ANOTHER BLOG POST</a></h2>
-
-    <ul class="blog-post-info list-inline">
-        <li>
-            <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-comment-o"></i>
-                <span class="font-lato">28</span>
-            </a>
-        </li>
-    </ul>
-
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which don't look
-        even slightly believable There are many.</p>
-
-    <a href="blog-single-default.html" class="btn btn-reveal btn-default">
-        <i class="fa fa-plus"></i>
-        <span>Read More</span>
-    </a>
-
-</div>
-<!-- /POST ITEM -->
+<?php endforeach; ?>

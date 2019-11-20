@@ -9,25 +9,25 @@ use App\Utilities\FlashMessage;
 
 class CategoryController
 {
-    private $model;
+    private $categoryModel;
 
     /**
      * Class constructor.
      */
     public function __construct()
     {
-        $this->model = new Category();
+        $this->categoryModel = new Category();
     }
-    
+
     public function list(Request $request)
     {
-        $categories = $this->model->read();
-        $data= array(
+        $categories = $this->categoryModel->read();
+        $data = array(
             'categories' => $categories,
         );
         View::load_from_base('admin.category.list', $data, 'admin');
     }
-    
+
     public function add(Request $request)
     {
         View::load_from_base('admin.category.add', array(), 'admin');
@@ -35,25 +35,30 @@ class CategoryController
 
     public function save(Request $request)
     {
+        $category = new Category();
         if ($request->check_keys_exists('title|slug')) {
-            $model = new Category();
-            $data = array(
-            'title'=>$request->title,
-            'slug'=>$request->slug,
-             );
-            $id = $model->create($data);
+            $category = new Category();
+
+            $category->title = $request->title;
+            $category->slug = $request->slug;
+
+            $category->save();
+
         }
-     
-        FlashMessage::add('دسته‌بندی مورد نظر اضافه شد', FlashMessage::SUCCESS);
-     
+        if (!is_null($category->id)) {
+            FlashMessage::add('مورد نظر با آی دی ' . $category->id . ' اضافه شد', FlashMessage::SUCCESS);
+            Request::redirect('admin/category/list');
+        }
+
+        FlashMessage::add('دسته‌بندی مورد نظر اضافه نشد', FlashMessage::ERROR);
         Request::redirect('admin/category/list');
     }
 
-        
+
     public function edit(Request $request)
     {
-        $category = $this->model->find_by_primary_key($request->id);
-        $data= array(
+        $category = new Category($request->id);
+        $data = array(
             'category' => $category,
         );
         View::load_from_base('admin.category.edit', $data, 'admin');
@@ -61,23 +66,30 @@ class CategoryController
 
     public function update(Request $request)
     {
+        $category = new Category($request->id);
         if ($request->key_exists('title') && $request->key_exists('slug')) {
-            $data = ['title'=> $request->title,'slug'=>$request->slug];
-            $where = ['id'=>$request->id];
-            if ($this->model->update($data, $where) >0) {
-                FlashMessage::add('آپدیت انجام شد' , FlashMessage::INFO);
+
+            $category->title = $request->title;
+            $category->slug = $request->slug;
+            $category->save();
+            if ($category->affected_row) {
+                FlashMessage::add('آپدیت انجام شد', FlashMessage::INFO);
                 Request::redirect('admin/category/list');
             }
-            FlashMessage::add('آپدیت انجام نشد' , FlashMessage::ERROR);
+            FlashMessage::add('آپدیت انجام نشد', FlashMessage::ERROR);
             Request::redirect('admin/category/list');
         }
 
-       
+
     }
+
     public function delete(Request $request)
     {
-        if ($this->model->delete(['id'=>$request->id]) == 1) {
-            Request::redirect('admin/category/list');
+        $category = new Category($request->id);
+        $category->delete();
+        if ($category->deleted_row) {
+            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $category->deleted_row. ' حذف شد ', FlashMessage::ERROR);
+            Request::redirect('admin/post/list');
         }
         echo "problem - occored in : " . where();
     }

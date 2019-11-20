@@ -2,11 +2,20 @@
 
 return array (
 
+
+//home route
     '/' =>[
         'method' => 'get',
         'target' => 'HomeController@index',
         'middleware'=>'FirefoxBlocker'
     ],
+
+    '/single/post' => [
+        'method' => 'get',
+        'target' => 'PostController@single',
+        'middleware' => ''
+    ],
+
 
 
 

@@ -1,4 +1,4 @@
-<!-- LEFT -->
+<!-- RIGHT -->
 <div class="col-md-3 col-sm-3">
 
     <!-- INLINE SEARCH -->
@@ -251,15 +251,15 @@
 </div>
 
 
-<!-- RIGHT -->
+<!-- LEFT -->
 <div class="col-md-9 col-sm-9">
 
-    <h1 class="blog-post-title">BLOG POST TITLE HERE</h1>
+    <h1 class="blog-post-title"><?= $post->title; ?></h1>
     <ul class="blog-post-info list-inline">
         <li>
             <a href="#">
                 <i class="fa fa-clock-o"></i>
-                <span class="font-lato">June 29, 2015</span>
+                <span class="font-lato"><?= $post->created_at; ?></span>
             </a>
         </li>
         <li>
@@ -304,7 +304,7 @@
 
     <!-- IMAGE -->
     <figure class="margin-bottom-20">
-        <img class="img-responsive" src="../assets/images/demo/content_slider/10-min.jpg" alt="img"/>
+        <img class="img-responsive" src="<?= $post->image; ?>" alt="img"/>
     </figure>
     <!-- /IMAGE -->
 
@@ -318,35 +318,7 @@
 
 
     <!-- article content -->
-    <p class="dropcap">Aliquam fringilla, sapien eget scelerisque placerat, lorem libero cursus lorem, sed sodales lorem
-        libero eu sapien. Nunc mattis feugiat justo vel faucibus. Nulla consequat feugiat malesuada. Ut justo nulla,
-        <strong>facilisis vel molestie id</strong>, dictum ut arcu. Nunc ipsum nulla, eleifend non blandit quis, luctus
-        quis orci. Cras blandit turpis mattis nulla ultrices interdum. Mauris pretium pretium dictum. Nunc commodo,
-        felis sed dictum bibendum, risus justo iaculis dui, nec euismod orci sem eget neque. Donec in metus metus, vitae
-        eleifend lorem. Ut vestibulum gravida venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et
-        ultrices posuere cubilia Curae; Pellentesque suscipit tincidunt magna non mollis. Fusce tempus tincidunt nisi,
-        in luctus elit pellentesque quis. Sed velit mi, ullamcorper ut tempor ut, mattis eu lacus. Morbi rhoncus aliquet
-        tellus, id accumsan enim sollicitudin vitae.</p>
-    <p>Vivamus <a href="#">magna justo</a>, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed
-        magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante
-        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet
-        aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>
-
-    <!-- BLOCKQUOTE -->
-    <blockquote>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        <cite>Source Title</cite>
-    </blockquote>
-
-    <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Quisque velit nisi, pretium ut lacinia in,
-        elementum id enim. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-        dui. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-        non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed,
-        convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat.
-        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
-    <p>Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta
-        dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <?= $post->content; ?>
     <!-- /article content -->
 
 
