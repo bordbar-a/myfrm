@@ -44,8 +44,6 @@ function removeEmptyMembers($array)
 }
 
 
-
-
 function site_url($uri=''){
     return BASE_URL . $uri;
 }
@@ -56,7 +54,6 @@ function theme_url($uri = ''){
     $active_theme = DEFAULT_THEME;
     return site_url("view/$active_theme/$uri");
 }
-
 
 
 function theme_path($uri , $theme){
@@ -75,6 +72,10 @@ function storage_url($path){
     return site_url('storage/'.$path_url);
 }
 
+function get_option($key){
+    $data = \App\Utilities\Option::get($key);
+    return $data;
+}
 
 
 function assets($filepath){
@@ -103,7 +104,7 @@ function get_date($format='Y-m-d H:i:s'){
 
 
 function get_active_theme(){
-    return DEFAULT_THEME;
+    return get_option('active_theme');
 }
 
 

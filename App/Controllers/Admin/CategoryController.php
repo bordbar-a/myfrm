@@ -46,7 +46,7 @@ class CategoryController
 
         }
         if (!is_null($category->id)) {
-            FlashMessage::add('مورد نظر با آی دی ' . $category->id . ' اضافه شد', FlashMessage::SUCCESS);
+            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $category->id . 'اضافه شد ', FlashMessage::SUCCESS);
             Request::redirect('admin/category/list');
         }
 
@@ -73,10 +73,10 @@ class CategoryController
             $category->slug = $request->slug;
             $category->save();
             if ($category->affected_row) {
-                FlashMessage::add('آپدیت انجام شد', FlashMessage::INFO);
+                FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $category->id . 'آپدیت شد ', FlashMessage::INFO);
                 Request::redirect('admin/category/list');
             }
-            FlashMessage::add('آپدیت انجام نشد', FlashMessage::ERROR);
+            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $category->id . 'آپدیت نشد ', FlashMessage::WARNING);
             Request::redirect('admin/category/list');
         }
 

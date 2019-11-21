@@ -52,7 +52,34 @@ return array (
     '/admin/category/delete' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@delete'
+    ],  
+    
+    //option route 
+    '/admin/option/list' => [
+        'method' => 'get',
+        'target' => 'Admin\OptionController@list'
     ],
+    '/admin/option/add' => [
+        'method' => 'get',
+        'target' => 'Admin\OptionController@add'
+    ],
+    '/admin/option/save' => [
+        'method' => 'post',
+        'target' => 'Admin\OptionController@save'
+    ],
+    '/admin/option/edit' => [
+        'method' => 'get',
+        'target' => 'Admin\OptionController@edit'
+    ],
+    '/admin/option/update' => [
+        'method' => 'post',
+        'target' => 'Admin\OptionController@update'
+    ],
+    '/admin/option/delete' => [
+        'method' => 'get',
+        'target' => 'Admin\OptionController@delete'
+    ],
+    
     
     //tag route 
     '/admin/tag/list' =>[

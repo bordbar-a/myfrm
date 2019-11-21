@@ -28,12 +28,12 @@
 
                 <a href="#">
                     <i class="fa fa-menu-arrow pull-right"></i>
-                    <i class="main-icon fa fa-th-list"></i> <span>دسته بندی ها</span>
+                    <i class="main-icon fa fa-th-list"></i> <span>تنظیمات</span>
                 </a>
                 <ul>
                     <!-- submenus -->
                     <li><a href="<?= admin_url('category/add'); ?>">افزودن</a></li>
-                    <li><a href="<?= admin_url('category/list'); ?>">لیست دسته بندی ها</a></li>
+                    <li><a href="<?= admin_url('category/list'); ?>">لیست تنظیمات</a></li>
                 </ul>
             </li>
             <!-- end categories -->
@@ -67,6 +67,21 @@
                 </ul>
             </li>
             <!-- end posts -->
+
+            <!-- options -->
+            <li class="">
+
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-th-list"></i> <span>تنظیمات</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li><a href="<?= admin_url('option/add'); ?>">افزودن</a></li>
+                    <li><a href="<?= admin_url('option/list'); ?>">لیست تنظیمات</a></li>
+                </ul>
+            </li>
+            <!-- end options -->
 
         </ul>
 

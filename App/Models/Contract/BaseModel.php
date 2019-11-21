@@ -15,6 +15,7 @@ abstract class BaseModel implements CRUD
     /**
      * Class constructor.
      */
+
     public function __construct($id = null)
     {
         $this->fields = array();
@@ -43,6 +44,15 @@ abstract class BaseModel implements CRUD
         $result = self::$conn->update(static::$table, $data, $where);
         $this->affected_row = $result->rowCount();
         return $this;
+    }
+
+    public function get($columns = '*' ,$where = array())
+    {
+        $date = self::$conn->get(static::$table , $columns , $where);
+        if(is_null($date)){
+            return null;
+        }
+        return ($columns == '*' || is_array($columns)) ? (object) $date : $date;
     }
 
     public function delete($where = null)
@@ -82,12 +92,10 @@ abstract class BaseModel implements CRUD
         return count($this->findBy($field, $value));
     }
 
-
     public function find_by_primary_key($id)
     {
         return self::read('*', array(static::$primary_key => $id))[0];
     }
-
 
     public function find($id)
     {
@@ -103,7 +111,6 @@ abstract class BaseModel implements CRUD
         return null;
     }
 
-
     public function __set($field, $value)
     {
 
@@ -116,7 +123,6 @@ abstract class BaseModel implements CRUD
 
     }
 
-
     public function save()
     {
         if (isset($this->fields[static::$primary_key])) {
@@ -124,5 +130,4 @@ abstract class BaseModel implements CRUD
         }
         return $this->create($this->fields);
     }
-
 }
