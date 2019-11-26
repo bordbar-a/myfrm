@@ -3,10 +3,10 @@
 
 function config($name)
 {
-    $this_config_path = BASE_PATH.'config' . DIRECTORY_SEPARATOR . "$name.php";
+    $this_config_path = BASE_PATH . 'config' . DIRECTORY_SEPARATOR . "$name.php";
 
 
-    if (! file_exists($this_config_path)) {
+    if (!file_exists($this_config_path)) {
         echo "The '$name' config not found" . PHP_EOL;
         return false;
     }
@@ -36,87 +36,125 @@ function GetCallingMethodName()
 
 function removeEmptyMembers($array)
 {
-    return array_filter($array, function($item){
+    return array_filter($array, function ($item) {
 
-        return trim($item) !=='';
+        return trim($item) !== '';
     });
 
 }
 
 
-function site_url($uri=''){
+function site_url($uri = '')
+{
     return BASE_URL . $uri;
 }
 
 
-function theme_url($uri = ''){
+function theme_url($uri = '')
+{
 
     $active_theme = DEFAULT_THEME;
     return site_url("view/$active_theme/$uri");
 }
 
 
-function theme_path($uri , $theme){
-    $uri = str_replace('|' , DIRECTORY_SEPARATOR , $uri);
-    return BASE_VIEW_PATH .'layouts' . DIRECTORY_SEPARATOR. 'themes'. DIRECTORY_SEPARATOR .  $theme . DIRECTORY_SEPARATOR . $uri;
+function theme_path($uri, $theme)
+{
+    $uri = str_replace('|', DIRECTORY_SEPARATOR, $uri);
+    return BASE_VIEW_PATH . 'layouts' . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $theme . DIRECTORY_SEPARATOR . $uri;
 }
 
 
-function admin_url($uri=''){
+function admin_url($uri = '')
+{
     return site_url('admin/' . $uri);
 }
 
 
-function storage_url($path){
-    $path_url = str_replace(DIRECTORY_SEPARATOR , '/' , $path);
-    return site_url('storage/'.$path_url);
+function storage_url($path)
+{
+    $path_url = str_replace(DIRECTORY_SEPARATOR, '/', $path);
+    return site_url('storage/' . $path_url);
 }
 
-function get_option($key){
+function get_option($key)
+{
     $data = \App\Utilities\Option::get($key);
     return $data;
 }
 
+function get_current_route()
+{
+    return $_SERVER['REQUEST_URI'];
+}
 
-function assets($filepath){
+function assets($filepath)
+{
     $active_theme = get_active_theme();
     return site_url('views/' . $active_theme . '/assets/' . $filepath);
 }
 
-function assets_admin($filepath){
+function assets_admin($filepath)
+{
     return site_url('views/admin/assets/' . $filepath);
 }
 
-function array_of_object($arr2d){
-    
+function array_of_object($arr2d)
+{
+
     $array_of_objects = array();
 
-    foreach($arr2d as $arr){
+    foreach ($arr2d as $arr) {
         $array_of_objects[] = (object)$arr;
     }
     return $array_of_objects;
 }
 
 
-function get_date($format='Y-m-d H:i:s'){
+function get_date($format = 'Y-m-d H:i:s')
+{
     return date($format);
 }
 
 
-function get_active_theme(){
+function get_active_theme()
+{
     return get_option('active_theme');
 }
 
 
-function get_widget($widget_name){
-    $view ='';
-    $widget_path = BASE_WIDGET_VIEW_PATH . $widget_name. '.php';
-    if(file_exists($widget_path)){
+function get_widget($widget_name)
+{
+    $view = '';
+    $widget_path = BASE_WIDGET_VIEW_PATH . $widget_name . '.php';
+    if (file_exists($widget_path)) {
         ob_start();
         include $widget_path;
         $view = ob_get_clean();
     }
     return $view;
+}
+
+function get_page_header($page = 'index')
+{
+    $route = array(
+        '/'=>'index',
+        '/auth' =>'auth'
+    );
+
+    $file_path = BASE_VIEW_PATH .
+        get_active_theme() . DIRECTORY_SEPARATOR . 'page-header' . DIRECTORY_SEPARATOR .
+        (($route[$_SERVER['REQUEST_URI']]) ?? 'index') . '.php';
+
+
+    if(file_exists($file_path)){
+        return $file_path;
+    }
+
+     return BASE_VIEW_PATH . DIRECTORY_SEPARATOR .
+    get_active_theme() . 'page-header' .
+    DIRECTORY_SEPARATOR . 'index.php';
+
 }
 
 // function storage_url($filename)
@@ -128,26 +166,6 @@ function get_widget($widget_name){
 // {
 //     return STORAGE_PATH . $filename;
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
@@ -172,13 +190,12 @@ function myDump(...$params)
         $array_in_object     ====> to decet this call is array in object
         $object_in_array     ====> to decet this call is object in array
     */
-    static $level_access =20;
+    static $level_access = 20;
     static $level = 0;
     static $is_object = 0;
     static $array_in_object = 0;
     static $object_in_array = 0;
     static $params_stack = [];
-
 
 
     /*
@@ -194,10 +211,10 @@ function myDump(...$params)
 
 
     //this if for check level access .
-    if ($level>=$level_access) {
+    if ($level >= $level_access) {
         if ($object_in_array && (!$array_in_object)) {
             $level++;
-            echo str_repeat('&nbsp;', 4*($level)) ."<span style='color:magenta;'> maximum level access , you can set depth from '\$level_access' variable in function $</span><br>";
+            echo str_repeat('&nbsp;', 4 * ($level)) . "<span style='color:magenta;'> maximum level access , you can set depth from '\$level_access' variable in function $</span><br>";
             $level--;
         } else {
             echo "<span style='color:magenta;'> maximum level access , you can depth this from '\$level_access' variable in function</span><br>";
@@ -214,13 +231,13 @@ function myDump(...$params)
             use myDump() , ofcourse if call is not recursive call
             and this check by $stack_size
     */
-    if ($stack_size ==1) {
+    if ($stack_size == 1) {
         echo "<pre>";
-        $path =$caller['file'] .":" . $caller['line'].':' ;
+        $path = $caller['file'] . ":" . $caller['line'] . ':';
         $level = 0;
         $is_object = 0;
         $array_in_object = 0;
-        $object_in_array =0 ;
+        $object_in_array = 0;
     }
 
     //in every myDump() call , set $is_array false and in next if , check that.
@@ -228,10 +245,10 @@ function myDump(...$params)
 
     // 1- if recive an array , by 1 element , and that elemnt is array , so
     //    put first element of this array in params and foreach on this array.
-    if (sizeof($params)== 1 && gettype($params[0])=="array") {
-        $params =$params[0];
+    if (sizeof($params) == 1 && gettype($params[0]) == "array") {
+        $params = $params[0];
         $is_array = true;
-        $size= sizeof($params);
+        $size = sizeof($params);
 
 
         //if this call isn't recursive call ,print path of myDump call .
@@ -239,8 +256,8 @@ function myDump(...$params)
             echo $path;
         }
         //in this case , echo 'array' by bold font in 2 case
-        if ((($is_object==0 && $stack_size>=1) || ($array_in_object && !$object_in_array))&& !($level>=$level_access)) {
-            echo "<br>". str_repeat('&nbsp;', 4*($level))  .
+        if ((($is_object == 0 && $stack_size >= 1) || ($array_in_object && !$object_in_array)) && !($level >= $level_access)) {
+            echo "<br>" . str_repeat('&nbsp;', 4 * ($level)) .
                 "<span style='font-weight:bold'>array</span>(size={$size})<br>";
         }
         $level++;
@@ -249,40 +266,39 @@ function myDump(...$params)
 
     // 1- for each on $params
     //    and it set already.
-    foreach ($params as $key =>$param) {
+    foreach ($params as $key => $param) {
 
         /*
             prevent a bug by this
             because myDump() is recursive function , if
             one of array's element have address of that array , myDump call  unlimited
         */
-        $is_continue=false;
+        $is_continue = false;
         foreach ($params_stack as $prm) {
-            if ($param===$prm) {
-                echo str_repeat('&nbsp;', 4*$level).
-                    (gettype($key)=='integer' ? " {$key}" : "'$key'")    ." =><br>";
+            if ($param === $prm) {
+                echo str_repeat('&nbsp;', 4 * $level) .
+                    (gettype($key) == 'integer' ? " {$key}" : "'$key'") . " =><br>";
                 $level++;
-                echo str_repeat('&nbsp;', 4*$level). "&array< <br>";
+                echo str_repeat('&nbsp;', 4 * $level) . "&array< <br>";
                 $level--;
                 $is_continue = true;
                 break;
             }
         }
-        if ($is_continue==true) {
+        if ($is_continue == true) {
             continue;
         }
         //end of prevent a bug
 
 
-
         //  1- if this call is first call and dont $is_array==1 ,
         //     so set default value for static variable and get path and echo that.
-        if ($stack_size ==1 && $is_array!=true) {
-            $path =$caller['file'] .":" . $caller['line'].':' ;
+        if ($stack_size == 1 && $is_array != true) {
+            $path = $caller['file'] . ":" . $caller['line'] . ':';
             $level = 0;
             $is_object = 0;
             $array_in_object = 0;
-            $object_in_array =0 ;
+            $object_in_array = 0;
             echo $path;
         }
 
@@ -297,8 +313,8 @@ function myDump(...$params)
             //if type of parameter is integer
             case "integer":
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level) .
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'") .
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
                         " => int <span style='color:green;'>{$param}</span><br>";
                 } else {
                     echo "int <span style='color:green;'>{$param}</span><br>";
@@ -308,8 +324,8 @@ function myDump(...$params)
             //if type of parameter is double , this echo float , like as var_dump
             case "double":
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level).
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'").
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
                         " => float <span style='color:orange;'>{$param}</span><br>";
                 } else {
                     echo "float <span style='color:orange;'>{$param}</span><br>";
@@ -321,26 +337,26 @@ function myDump(...$params)
             case "string":
                 $size = strlen($param);
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level).
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'") .
-                        " => string <span style='color:red;'>'{$param}'</span>".
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
+                        " => string <span style='color:red;'>'{$param}'</span>" .
                         " <span style='font-style:italic;'>(Lenght={$size})</span><br>";
                 } else {
-                    echo "string <span style='color:red;'>'{$param}'</span>".
-                        " <span style='font-style:italic;'>(Lenght={$size})</span><br>" ;
+                    echo "string <span style='color:red;'>'{$param}'</span>" .
+                        " <span style='font-style:italic;'>(Lenght={$size})</span><br>";
                 }
                 break;
 
             //if type of parameter is boolean
             case "boolean":
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level)  .
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'")  .
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
                         " => boolean<span style='color:brown ;'> " .
-                        ($param==true ?"true" : "false") . "</span><br>";
+                        ($param == true ? "true" : "false") . "</span><br>";
                 } else {
-                    echo "boolean<span style='color:brown ;'> ".
-                        ($param==true ?"true" : "false") ."</span><br>";
+                    echo "boolean<span style='color:brown ;'> " .
+                        ($param == true ? "true" : "false") . "</span><br>";
                 }
                 break;
 
@@ -348,8 +364,8 @@ function myDump(...$params)
             //if type of parameter is boolean
             case "NULL":
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level).
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'") .
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
                         " => <span style='color:slateblue ;'>null</span><br>";
                 } else {
                     echo "<span style='color:slateblue ;'>null</span><br>";
@@ -357,10 +373,10 @@ function myDump(...$params)
                 break;
             case "resource":
                 $resource_type = get_resource_type($param);
-                $resource_id = substr((string)$param, strpos((string)$param, '#')+1);
+                $resource_id = substr((string)$param, strpos((string)$param, '#') + 1);
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level).
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'") .
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") .
                         " => <span style='font-weight:bold ;'>resource</span>({$resource_id}, {$resource_type})<br>";
                 } else {
                     echo "<span style='font-weight:bold ;'>resource</span>({$resource_id}, {$resource_type})<br>";
@@ -371,16 +387,16 @@ function myDump(...$params)
             case "array":
                 $object_in_array = 0;
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level).
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'")    ." =>";
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") . " =>";
                 }
 
                 //if this params is object properties and now a property in that is array ,
                 // set $array_in_object to 1 for handle this in next myDump call
                 if ($is_object) {
-                    $array_in_object =1;
+                    $array_in_object = 1;
                 }
-                if ($stack_size>1 || $is_array==true) {
+                if ($stack_size > 1 || $is_array == true) {
                     $level++;
                 }
 
@@ -402,18 +418,18 @@ function myDump(...$params)
             */
             case "object":
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level) .
-                        (gettype($key)=='integer' ? " {$key}" : "'$key'")    ." =><br>";
-                    $object_in_array =1;
+                    echo str_repeat('&nbsp;', 4 * $level) .
+                        (gettype($key) == 'integer' ? " {$key}" : "'$key'") . " =><br>";
+                    $object_in_array = 1;
                 }
                 if ($is_object || $is_array) {
                     $level++;
                 }
 
                 $class = get_class($param);
-                $is_object =1;
+                $is_object = 1;
                 if ($is_array) {
-                    echo str_repeat('&nbsp;', 4*$level)  .
+                    echo str_repeat('&nbsp;', 4 * $level) .
                         "<span style='font-weight:bold'>object</span>({$class})<br>";
                 } else {
                     echo "<br><span style ='font-weight:bold'>object</span>({$class})<br>";
@@ -432,19 +448,19 @@ function myDump(...$params)
 
 
         //new line , for every parameter in first call of myDump , like var_dump method
-        if ($stack_size==1 && $is_array!=true) {
+        if ($stack_size == 1 && $is_array != true) {
             echo "<br>";
         }
     }//end of foreach
 
-    if ($level>1) {
+    if ($level > 1) {
         $level--;
     } else {
         $level = 0;
     }
     //for good style , and this echo only in first call of myDump()
-    if ($stack_size==1) {
-        $params_stack =[];
+    if ($stack_size == 1) {
+        $params_stack = [];
         echo "</pre>";
     }
 }//end of myDump function

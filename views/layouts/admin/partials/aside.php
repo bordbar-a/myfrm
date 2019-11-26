@@ -68,6 +68,21 @@
             </li>
             <!-- end posts -->
 
+            <!-- users -->
+            <li class="">
+
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-th-list"></i> <span>کاربران</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li><a href="<?= admin_url('user/add'); ?>">افزودن کاربر</a></li>
+                    <li><a href="<?= admin_url('user/list'); ?>">لیست کاربران</a></li>
+                </ul>
+            </li>
+            <!-- end users -->
+
             <!-- options -->
             <li class="">
 

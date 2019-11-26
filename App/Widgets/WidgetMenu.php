@@ -3,7 +3,7 @@
 namespace App\Widgets;
 
 use App\Models\Menu;
-use App\Widgets\Contracts\BaseWidget;
+use App\Widgets\Contract\BaseWidget;
 
 class WidgetMenu extends BaseWidget{
     public function handle()

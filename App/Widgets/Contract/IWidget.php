@@ -1,5 +1,5 @@
 <?php
-namespace App\Widgets\Contracts;
+namespace App\Widgets\Contract;
 
 interface IWidget{
 

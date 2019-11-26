@@ -59,9 +59,10 @@ class Request
 
 
 
-    public static function redirect($route)
+    public static function redirect($address='')
     {
-        header("Location: " . site_url($route));
+        $route = filter_var($address,FILTER_VALIDATE_URL) ? $address : site_url($address);
+        header("Location: " . $route);
         die();
     }
 
@@ -77,7 +78,6 @@ class Request
         }
         return true;
     }
-
 
     public function isAjax()
     {

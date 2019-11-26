@@ -24,7 +24,7 @@ class Router
 
         if (! $request->is_in($allowed_request_method)) {
             header('HTTP/1.0 403 Forbidden');
-            echo 'You are forbidden! - occoured in : ' . where();
+           View::load('errors.access_denied');
             die();
         }
 

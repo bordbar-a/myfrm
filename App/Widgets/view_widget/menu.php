@@ -31,7 +31,7 @@ $menus = $widegtMenuObj->handle();
     </li>
 <?php endforeach; ?>
 
-<!--<li class="dropdown mega-menu"><!-- SHORTCODES -->-->
+<!--<li class="dropdown mega-menu">  SHORTCODES -->
 <!--    <a class="dropdown-toggle" href="#">-->
 <!--        عناصر و شورتکدها-->
 <!--    </a>-->

@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
-<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>
+<html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->
 <html>
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Smarty - Multipurpose + Admin</title>
-    <meta name="keywords" content="HTML5,CSS3,Template" />
-    <meta name="description" content="" />
-    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+    <meta name="keywords" content="HTML5,CSS3,Template"/>
+    <meta name="description" content=""/>
+    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]"/>
 
     <!-- mobile settings -->
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
     <!-- WEB FONTS : use %7C instead of | (pipe) -->
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
-        rel="stylesheet" type="text/css" />
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+            rel="stylesheet" type="text/css"/>
 
     <!-- CORE CSS -->
-    <link href="<?= assets('plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= assets('plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css"/>
 
     <!-- THEME CSS -->
-    <link href="<?= assets('css/essentials.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?= assets('css/layout.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?= assets('plugins/bootstrap/RTL/bootstrap-rtl.min.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?= assets('plugins/bootstrap/RTL/bootstrap-flipped.min.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?= assets('css/layout-RTL.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= assets('css/essentials.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('css/layout.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('plugins/bootstrap/RTL/bootstrap-rtl.min.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('plugins/bootstrap/RTL/bootstrap-flipped.min.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('css/layout-RTL.css') ?>" rel="stylesheet" type="text/css"/>
 
     <!-- PAGE LEVEL SCRIPTS -->
-    <link href="<?= assets('css/header-1.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?= assets('css/color_scheme/green.css') ?>" rel="stylesheet" type="text/css" id="color_scheme" />
+    <link href="<?= assets('css/header-1.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('css/color_scheme/green.css') ?>" rel="stylesheet" type="text/css" id="color_scheme"/>
 
     <!-- SWIE SLIDER -->
-    <link href="<?= assets('plugins/slider.swiper/dist/css/swiper.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= assets('plugins/slider.swiper/dist/css/swiper.min.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('css/style.css') ?>" rel="stylesheet" type="text/css"/>
 </head>
 
 <!--
@@ -62,7 +66,6 @@
 	-->
 
 <body class="smoothscroll enable-animation">
-
 
 
 <!-- wrapper -->
@@ -94,7 +97,7 @@
 
             Example Usage:  class="clearfix sticky header-sm transparent noborder"
         -->
-    <div id="header" class="sticky transparent clearfix">
+    <div id="header" class="sticky clearfix">
 
         <!-- TOP NAV -->
         <header id="topNav">
@@ -116,7 +119,7 @@
                         <div class="search-box">
                             <form action="page-search-result-1.html" method="get">
                                 <div class="input-group">
-                                    <input type="text" name="src" placeholder="Search" class="form-control" />
+                                    <input type="text" name="src" placeholder="Search" class="form-control"/>
                                     <span class="input-group-btn">
                                             <button class="btn btn-primary" type="submit">Search</button>
                                         </span>
@@ -127,22 +130,29 @@
                     <!-- /SEARCH -->
 
                     <!-- QUICK SHOP CART -->
-                    <?php include_once theme_path('partials|cart.php' , 'one')?>
+                    <?php include_once theme_path('partials|cart.php', 'one') ?>
                     <!-- /QUICK SHOP CART -->
 
                 </ul>
                 <!-- /BUTTONS -->
 
                 <!-- Logo -->
-                <a class="logo pull-left" href="<?= site_url(); ?>">
-                    <button type="button" class="btn btn-info margin-left-20" >صفحه اول</button>
-                </a>
 
                 <a class="logo pull-left" href="<?= admin_url(); ?>">
-                    <button type="button" class="btn btn-info">پنل ادمین</button>
+                    <button type="button" class="btn btn-info margin-left-20">پنل ادمین</button>
                 </a>
 
-            <?php include_once theme_path('partials|menu.php','one'); ?>
+                <?php if(!\App\Services\Auth\Auth::is_login()): ?>
+                <a class="logo pull-left" href="<?= site_url('auth'); ?>">
+                    <button type="button" class="btn btn-info margin-left-20">ورود/ثبت‌نام</button>
+                </a>
+                <?php else:?>
+                    <a class="logo pull-left" href="<?= site_url('auth/logout'); ?>">
+                        <button type="button" class="btn btn-info margin-left-20">خروج</button>
+                    </a>
+                <?php endif;?>
+
+                <?php include_once theme_path('partials|menu.php', 'one'); ?>
             </div>
         </header>
         <!-- /Top Nav -->
@@ -168,29 +178,9 @@
                 .shadow-after-3 	= shadow 3 header bottom
                 .light			= light page header
         -->
-    <section class="page-header page-header-xlg parallax parallax-4"
-             style="background-image:url('<?= assets("images/demo/index-min.jpg") ?>')">
-        <div class="overlay dark-2">
-            <!-- dark overlay [1 to 9 opacity] -->
-        </div>
 
-        <div class="container">
-
-            <h1>WELCOME TO SMARTY BLOG</h1>
-            <span class="font-lato size-18 weight-300">We believe in Simple &amp; Creative</span>
-
-            <!-- breadcrumbs -->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Blog</li>
-            </ol><!-- /breadcrumbs -->
-
-        </div>
-    </section>
+    <?php include_once get_page_header(); ?>
     <!-- /PAGE HEADER -->
-
-
-
 
 
     <!-- -->
@@ -199,7 +189,7 @@
 
             <div class="row">
 
-               <?= $view; ?>
+                <?= $view; ?>
 
             </div>
 
@@ -214,12 +204,10 @@
         </div>
     </section>
     <!-- / -->
-
-
-
+    <?php \App\Utilities\FlashMessage::show_messages(); ?>
 
     <!-- FOOTER -->
-    <?php include_once theme_path('partials|footer.php','one') ?>
+    <?php include_once theme_path('partials|footer.php', 'one') ?>
     <!-- /FOOTER -->
 
 </div>
@@ -252,6 +240,25 @@
 <!-- SWIPE SLIDER -->
 <script type="text/javascript" src="<?= assets('plugins/slider.swiper/dist/js/swiper.min.js') ?>"></script>
 <script type="text/javascript" src="<?= assets('js/view/demo.swiper_slider.js') ?>"></script>
+<script type="text/javascript">
+
+    /**
+     Checkbox on "I agree" modal Clicked!
+     **/
+    jQuery("#terms-agree").click(function () {
+        jQuery('#termsModal').modal('toggle');
+
+        // Check Terms and Conditions checkbox if not already checked!
+        if (!jQuery("#checked-agree").checked) {
+            jQuery("input.checked-agree").prop('checked', true);
+        }
+
+    });
+
+    $('.flash-message').click(function() {
+        $(this).fadeOut();
+    });
+</script>
 </body>
 
 </html>
