@@ -6,7 +6,7 @@ use App\Middlewares\Contract\BaseMiddleware;
 use App\Services\Auth\Auth;
 use App\Services\View\View;
 
-class IsAdmin extends BaseMiddleware
+class AdminPanelGuard extends BaseMiddleware
 {
     public function handle(\App\Core\Request $request)
     {

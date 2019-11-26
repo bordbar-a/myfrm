@@ -45,7 +45,7 @@ return array (
     '/admin' =>[
         'method' => 'get|post',
         'target' => 'Admin\DashboardController@index',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
 
     
@@ -53,64 +53,64 @@ return array (
     '/admin/category/list' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@list',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/category/add' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@add',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/category/save' =>[
         'method' => 'post',
         'target' => 'Admin\CategoryController@save',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/category/edit' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@edit',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/category/update' =>[
         'method' => 'post',
         'target' => 'Admin\CategoryController@update',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/category/delete' =>[
         'method' => 'get',
         'target' => 'Admin\CategoryController@delete',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],  
     
     //user route 
     '/admin/user/list' => [
         'method' => 'get',
         'target' => 'Admin\UserController@list',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/user/add' => [
         'method' => 'get',
         'target' => 'Admin\UserController@add',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/user/save' => [
         'method' => 'post',
         'target' => 'Admin\UserController@save',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/user/edit' => [
         'method' => 'get',
         'target' => 'Admin\UserController@edit',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/user/update' => [
         'method' => 'post',
         'target' => 'Admin\UserController@update',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/user/delete' => [
         'method' => 'get',
         'target' => 'Admin\UserController@delete',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],  
     
     
@@ -118,32 +118,32 @@ return array (
     '/admin/option/list' => [
         'method' => 'get',
         'target' => 'Admin\OptionController@list',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/option/add' => [
         'method' => 'get',
         'target' => 'Admin\OptionController@add',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/option/save' => [
         'method' => 'post',
         'target' => 'Admin\OptionController@save',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/option/edit' => [
         'method' => 'get',
         'target' => 'Admin\OptionController@edit',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/option/update' => [
         'method' => 'post',
         'target' => 'Admin\OptionController@update',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/option/delete' => [
         'method' => 'get',
         'target' => 'Admin\OptionController@delete',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     
     
@@ -151,64 +151,64 @@ return array (
     '/admin/tag/list' =>[
         'method' => 'get',
         'target' => 'Admin\TagController@list',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/tag/add' =>[
         'method' => 'get',
         'target' => 'Admin\TagController@add',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/tag/save' =>[
         'method' => 'post',
         'target' => 'Admin\TagController@save',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/tag/edit' =>[
         'method' => 'get',
         'target' => 'Admin\TagController@edit',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/tag/update' =>[
         'method' => 'post',
         'target' => 'Admin\TagController@update',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/tag/delete' =>[
         'method' => 'get',
         'target' => 'Admin\TagController@delete',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
 
     //post route 
     '/admin/post/list' =>[
         'method' => 'get',
         'target' => 'Admin\PostController@list',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/post/add' =>[
         'method' => 'get',
         'target' => 'Admin\PostController@add',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/post/save' =>[
         'method' => 'post',
         'target' => 'Admin\PostController@save',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/post/edit' =>[
         'method' => 'get',
         'target' => 'Admin\PostController@edit',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/post/update' =>[
         'method' => 'post',
         'target' => 'Admin\PostController@update',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
     '/admin/post/delete' =>[
         'method' => 'get',
         'target' => 'Admin\PostController@delete',
-        'middleware'=>'IsAdmin'
+        'middleware'=>'AdminPanelGuard'
     ],
 
 // end of admin route
