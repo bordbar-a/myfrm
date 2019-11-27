@@ -68,6 +68,21 @@
             </li>
             <!-- end posts -->
 
+            <!-- files -->
+            <li class="">
+
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-th-list"></i> <span>فایل‌ها</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li><a href="<?= admin_url('file/add'); ?>">افزودن فایل</a></li>
+                    <li><a href="<?= admin_url('file/list'); ?>">لیست فایل‌ها</a></li>
+                </ul>
+            </li>
+            <!-- end files -->
+
             <!-- users -->
             <li class="">
 

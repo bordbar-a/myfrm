@@ -15,6 +15,7 @@ class User extends BaseModel
         'phonenumber',
         'role',
         'wallet',
+        'news',
         'updated_at',
         'created_at',
         'remove_at',

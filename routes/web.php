@@ -210,6 +210,40 @@ return array (
         'target' => 'Admin\PostController@delete',
         'middleware'=>'AdminPanelGuard'
     ],
+    
+    
+    
+    //file route 
+    '/admin/file/list' =>[
+        'method' => 'get',
+        'target' => 'Admin\FileController@list',
+        'middleware'=>'AdminPanelGuard'
+    ],
+    '/admin/file/add' =>[
+        'method' => 'get',
+        'target' => 'Admin\FileController@add',
+        'middleware'=>'AdminPanelGuard'
+    ],
+    '/admin/file/save' =>[
+        'method' => 'post',
+        'target' => 'Admin\FileController@save',
+        'middleware'=>'AdminPanelGuard'
+    ],
+    '/admin/file/edit' =>[
+        'method' => 'get',
+        'target' => 'Admin\FileController@edit',
+        'middleware'=>'AdminPanelGuard'
+    ],
+    '/admin/file/update' =>[
+        'method' => 'post',
+        'target' => 'Admin\FileController@update',
+        'middleware'=>'AdminPanelGuard'
+    ],
+    '/admin/file/delete' =>[
+        'method' => 'get',
+        'target' => 'Admin\FileController@delete',
+        'middleware'=>'AdminPanelGuard'
+    ],
 
 // end of admin route
 );

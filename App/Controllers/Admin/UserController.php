@@ -21,7 +21,7 @@ class UserController
 
     public function list(Request $request)
     {
-        $users = $this->userModel->read(['id' , 'name' , 'lastname' ,'email'  , 'role' , 'wallet' , 'updated_at'] );
+        $users = $this->userModel->read(['id', 'name', 'lastname', 'email', 'role', 'wallet', 'updated_at']);
         $data = array(
             'users' => $users,
         );
@@ -46,17 +46,19 @@ class UserController
 
         }
         if (!is_null($user->id)) {
-            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $user->id . 'اضافه شد ', FlashMessage::SUCCESS);
+            FlashMessage::add('کاربر مورد نظر با آی دی ' . $user->id . 'اضافه شد ', FlashMessage::SUCCESS);
             Request::redirect('admin/user/list');
         }
 
-        FlashMessage::add('دسته‌بندی مورد نظر اضافه نشد', FlashMessage::ERROR);
+        FlashMessage::add('کاربر مورد نظر اضافه نشد', FlashMessage::ERROR);
         Request::redirect('admin/user/list');
     }
 
 
     public function edit(Request $request)
     {
+
+
         $user = new User($request->id);
         $data = array(
             'user' => $user,
@@ -66,17 +68,23 @@ class UserController
 
     public function update(Request $request)
     {
-        $user = new User($request->id);
-        if ($request->check_keys_exists('title|slug')) {
 
-            $user->title = $request->title;
-            $user->slug = $request->slug;
+        $user = new User($request->id);
+        if ($request->check_keys_exists('email')) {
+
+            $user->name = $request->name;
+            $user->lastname = $request->lastname;
+            $user->email = $request->email;
+            $user->phonenumber = $request->phonenumber;
+            $user->wallet = $request->wallet;
+            $user->news = $request->news ? 1 : 0;
+            $user->updated_at = get_date();
             $user->save();
             if ($user->affected_row) {
-                FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $user->id . 'آپدیت شد ', FlashMessage::INFO);
+                FlashMessage::add('کاربر مورد نظر با آی دی ' . $user->id . ' آپدیت شد ', FlashMessage::INFO);
                 Request::redirect('admin/user/list');
             }
-            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $user->id . 'آپدیت نشد ', FlashMessage::WARNING);
+            FlashMessage::add('کاربر مورد نظر با آی دی ' . $user->id . ' آپدیت نشد ', FlashMessage::WARNING);
             Request::redirect('admin/user/list');
         }
 
@@ -88,7 +96,7 @@ class UserController
         $user = new User($request->id);
         $user->delete();
         if ($user->deleted_row) {
-            FlashMessage::add('دسته‌بندی مورد نظر با آی دی ' . $user->deleted_row. ' حذف شد ', FlashMessage::ERROR);
+            FlashMessage::add('کاربر مورد نظر با آی دی ' . $user->deleted_row . ' حذف شد ', FlashMessage::ERROR);
             Request::redirect('admin/user/list');
         }
         echo "problem - occored in : " . where();

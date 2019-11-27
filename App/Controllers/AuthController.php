@@ -19,6 +19,10 @@ class AuthController {
     public function index(Request $request)
     {
 
+        if(Auth::is_login()){
+            Request::redirect();
+        }
+
         $data = array(
             'newReferer'=>$request->referer,
         );

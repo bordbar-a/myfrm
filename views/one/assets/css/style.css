@@ -28,3 +28,10 @@
     border: 1px solid #1fb056;
     color: #fff;
 }
+
+
+.flash-message.flash-warning {
+    background: #d8c21b;
+    border: 1px solid #1fb056;
+    color: #fff;
+}

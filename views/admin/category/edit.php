@@ -15,7 +15,12 @@
         <div class="row">
 
             <div class="col-md-12">
-
+                <a href="<?= admin_url('category/list'); ?>">
+                    <button type="button" class="btn btn-primary btn-lg margin-bottom-30 ">‌لیست دسته‌بندی‌ها</button>
+                </a>
+                <a href="<?= admin_url('category/delete?id='. $category->id); ?>">
+                    <button type="button" class="btn btn-danger btn-lg margin-bottom-30 margin-right-30">حذف این دسته‌بندی</button>
+                </a>
                 <!-- ------ -->
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-transparent">

@@ -4907,6 +4907,7 @@ section.dark .checkbox {
 .radio input,
 .checkbox input {
 	position: absolute;
+	display : none;
 	left: -9999px;
 }
 .radio i,
