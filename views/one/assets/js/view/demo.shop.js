@@ -18,7 +18,7 @@
 
 	
 		/* ******************* PHP URL TO POST *************** */
-		var URL_POST = 'php/view/demo.shop.php'; // CHANGE IT!
+		var URL_POST = 'http://myfrm.mehost:8080/file/action'; // CHANGE IT!
 		/* *************************************************** */
 
 

@@ -114,14 +114,13 @@ class FileController
         $thumb_image_Object = new UploadedFile('thumb');
 
 
-        if ($file_object->save() && $thumb_image_Object->save()) {
+        if ($file_object->save()) {
             $file_url = $file_object->get_file_url();
-            $thumb_image_url = $thumb_image_Object->get_file_url();
-        } else {
-            $file_object->destroy();
-            $thumb_image_Object->destroy();
-        }
 
+        }
+        if ($thumb_image_Object->save()) {
+            $thumb_image_url = $thumb_image_Object->get_file_url();
+        }
 
         if ($request->check_keys_exists('type|title|description|category_id|price')) {
 

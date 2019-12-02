@@ -137,14 +137,17 @@ function get_widget($widget_name)
 
 function get_page_header($page = 'index')
 {
+
     $route = array(
         '/'=>'index',
-        '/auth' =>'auth'
+        '/auth' =>'auth',
+        '/file/list' =>'filelist',
+        '/single/file' =>'filesingle',
     );
 
     $file_path = BASE_VIEW_PATH .
         get_active_theme() . DIRECTORY_SEPARATOR . 'page-header' . DIRECTORY_SEPARATOR .
-        (($route[$_SERVER['REQUEST_URI']]) ?? 'index') . '.php';
+        (($route[\App\Services\Router\Router::get_current_route()]) ?? 'index') . '.php';
 
 
     if(file_exists($file_path)){

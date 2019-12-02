@@ -15,6 +15,30 @@ return array (
         'target' => 'PostController@single',
         'middleware' => ''
     ],
+    '/file/list' => [
+        'method' => 'get',
+        'target' => 'FileController@list',
+        'middleware' => ''
+    ],
+    '/single/file' => [
+        'method' => 'get',
+        'target' => 'FileController@single',
+        'middleware' => ''
+    ],
+    '/file/action' => [
+        'method' => 'post',
+        'target' => 'FileController@action',
+        'middleware' => ''
+    ],
+
+    // basket route
+    '/basket/add' => [
+        'method' => 'post',
+        'target' => 'BasketController@add',
+        'middleware' => ''
+    ],
+
+
 
 
     '/auth' =>[

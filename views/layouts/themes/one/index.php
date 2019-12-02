@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Smarty - Multipurpose + Admin</title>
+    <title>myfrm</title>
     <meta name="keywords" content="HTML5,CSS3,Template"/>
     <meta name="description" content=""/>
     <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]"/>
@@ -36,6 +36,7 @@
 
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="<?= assets('css/header-1.css') ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= assets('css/layout-shop.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?= assets('css/color_scheme/green.css') ?>" rel="stylesheet" type="text/css" id="color_scheme"/>
 
     <!-- SWIE SLIDER -->
@@ -240,6 +241,8 @@
 <!-- SWIPE SLIDER -->
 <script type="text/javascript" src="<?= assets('plugins/slider.swiper/dist/js/swiper.min.js') ?>"></script>
 <script type="text/javascript" src="<?= assets('js/view/demo.swiper_slider.js') ?>"></script>
+<script type="text/javascript" src=" <?= assets("js/view/demo.shop.js") ?>"></script>
+<script type="text/javascript" src=" <?= assets("js/myscripts.js") ?>"></script>
 <script type="text/javascript">
 
     /**

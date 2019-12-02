@@ -20,6 +20,6 @@ class PostController {
         $data = array(
             'post' => $post,
         );
-        View::load('single.single' , $data , 'themes');
+        View::load('single.post' , $data , 'themes');
     }
 }
