@@ -143,6 +143,7 @@ function get_page_header($page = 'index')
         '/auth' =>'auth',
         '/file/list' =>'filelist',
         '/single/file' =>'filesingle',
+        '/basket/list' =>'cart',
     );
 
     $file_path = BASE_VIEW_PATH .

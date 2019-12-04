@@ -301,7 +301,7 @@
 
 
 		// Srearch
-		jQuery('li.search i.fa').click(function () {
+		jQuery('li.search i.fa').on('click',function () {
 			if(jQuery('#header .search-box').is(":visible")) {
 				jQuery('#header .search-box').fadeOut(300);
 			} else {
@@ -351,7 +351,7 @@
 
 
 		// Quick Cart
-		jQuery('li.quick-cart>a').click(function (e) {
+		jQuery('li.quick-cart>a').on('click',function (e) {
 			e.preventDefault();
 			
 			var _quick_cart_box = jQuery('li.quick-cart div.quick-cart-box');
@@ -1046,7 +1046,7 @@
 					html: true,
 					trigger: 'manual'
 
-				}).click(function(e) {
+				}).on('click',function(e) {
 
 					jQuery(this).popover('show');
 					
@@ -1056,7 +1056,7 @@
 
 				});
 
-				jQuery(document).click(function(e) {
+				jQuery(document).on( 'click' ,function(e) {
 					if(isVisible & clickedAway) {
 
 						jQuery("a[data-toggle=popover], button[data-toggle=popover]").popover('hide');
@@ -1076,11 +1076,11 @@
 				html: true,
 				trigger: 'manual'
 
-			}).click(function(e) {
+			}).on('click',function(e) {
 
 				$(this).popover('show');
 				$('.popover-title').append('<button type="button" class="close">&times;</button>');
-				$('.close').click(function(e){
+				$('.close').on('click',function(e){
 
 					jQuery("a[data-toggle=popover], button[data-toggle=popover]").popover('hide');
 
@@ -1366,7 +1366,7 @@
 
 		jQuery("div.toggle.active > p").addClass("preview-active");
 		jQuery("div.toggle.active > div.toggle-content").slideDown(400);
-		jQuery("div.toggle > label").click(function(e) {
+		jQuery("div.toggle > label").on('click',function(e) {
 
 			var parentSection 	= jQuery(this).parent(),
 				parentWrapper 	= jQuery(this).parents("div.toggle"),

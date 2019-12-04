@@ -35,3 +35,8 @@
     border: 1px solid #1fb056;
     color: #fff;
 }
+
+
+a.btn-danger{
+    background-color: red !important;
+}

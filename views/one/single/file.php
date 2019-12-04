@@ -5,67 +5,15 @@
         <div class="row">
 
             <!-- IMAGE -->
-            <div class="col-lg-4 col-sm-4">
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<?= $file->thumb ?>" alt="" />
+                    <div class="caption">
+                        <h4>تصویر بند انگشتی</h4>
+                        <?= $file->title ?>
 
-                <div class="thumbnail relative margin-bottom-3">
-
-                    <!-- 
-                        IMAGE ZOOM 
-                        
-                        data-mode="mouseover|grab|click|toggle"
-                    -->
-                    <figure id="zoom-primary" class="zoom" data-mode="mouseover">
-                        <!-- 
-                            zoom buttton
-                            
-                            positions available:
-                                .bottom-right
-                                .bottom-left
-                                .top-right
-                                .top-left
-                        -->
-                        <a class="lightbox bottom-right"
-                           href=" <?= assets('images/demo/shop/products/1000x1500/p5.jpg') ?> "
-                           data-plugin-options='{"type":"image"}'><i class="glyphicon glyphicon-search"></i></a>
-
-                        <!-- 
-                            image 
-                            
-                            Extra: add .image-bw class to force black and white!
-                        -->
-                        <img class="img-responsive" src=" <?= assets('images/demo/shop/products/1000x1500/p5.jpg') ?> "
-                             width="1200" height="1500" alt="This is the product title"/>
-                    </figure>
-
+                    </div>
                 </div>
-
-                <!-- Thumbnails (required height:100px) -->
-                <div data-for="zoom-primary" class="zoom-more owl-carousel owl-padding-3 featured"
-                     data-plugin-options='{"singleItem": false, "autoPlay": false, "navigation": true, "pagination": false}'>
-                    <a class="thumbnail active" href=" <?= assets('images/demo/shop/products/1000x1500/p5.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p5.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p6.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p6.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p7.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p7.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p8.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p8.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p9.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p9.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p10.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p10.jpg') ?> " height="100" alt=""/>
-                    </a>
-                    <a class="thumbnail" href=" <?= assets('images/demo/shop/products/1000x1500/p11.jpg') ?> ">
-                        <img src=" <?= assets('images/demo/shop/products/100x100/p11.jpg') ?> " height="100" alt=""/>
-                    </a>
-                </div>
-                <!-- /Thumbnails -->
-
             </div>
             <!-- /IMAGE -->
 
@@ -126,6 +74,7 @@
                     <input type="hidden" id="color" name="color" value="yellow"/>
                     <input type="hidden" id="qty" name="qty" value="1"/>
                     <input type="hidden" id="size" name="size" value="5"/>
+                    <input type="hidden" id="size" name="file_id" value="<?= $file->id ?>"/>
                     <!-- see assets/js/view/demo.shop.js -->
 
                     <div class="btn-group pull-left product-opt-color">

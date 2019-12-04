@@ -38,6 +38,29 @@ return array (
         'middleware' => ''
     ],
 
+    '/basket/reset' => [
+        'method' => 'post',
+        'target' => 'BasketController@reset',
+        'middleware' => ''
+    ],
+    '/basket/list' => [
+        'method' => 'get',
+        'target' => 'BasketController@list',
+        'middleware' => ''
+    ],
+
+    '/basket/update' => [
+        'method' => 'post',
+        'target' => 'BasketController@update',
+        'middleware' => ''
+    ],
+    '/basket/item/remove' => [
+        'method' => 'get',
+        'target' => 'BasketController@item_remove',
+        'middleware' => ''
+    ],
+
+
 
 
 

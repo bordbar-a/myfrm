@@ -147,8 +147,13 @@
 
                                 <!-- buttons -->
                                 <div class="shop-item-buttons text-center">
-                                    <a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i>
-                                        اضافه به سبد خرید</a>
+                                    <form class="ajax-form" action="<?= site_url('basket/add') ?>" method="post">
+                                        <input type="hidden" name="file_id" value="<?= $file->id ?>">
+
+                                    <button class="btn btn-default" type="submit"><i
+                                                class="fa fa-cart-plus"></i>
+                                        اضافه به سبد خرید</button>
+                                    </form>
                                 </div>
                                 <!-- /buttons -->
                             </div>
