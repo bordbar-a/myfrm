@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\Request;
 use App\Models\File;
 use App\Models\Post;
+use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\View\View;
 
@@ -60,7 +61,7 @@ class BasketController
             'total_price' => Basket::total_price(),
         );
 
-        View::load('cart.shop', $data, 'themes');
+        View::load('cart.shop', $data, 'themes' , false);
     }
 
 
@@ -97,11 +98,55 @@ class BasketController
 
     public function item_remove(Request $request)
     {
-        if(Basket::is_exist_item_by_id($request->id)){
+        if (Basket::is_exist_item_by_id($request->id)) {
             Basket::remove($request->id);
         }
 
         Request::redirect('basket/list');
+
+    }
+
+    public function checkout(Request $request)
+    {
+
+        $total_basket_price = Basket::total_price();
+        $data = array(
+            'total_price' => $total_basket_price,
+        );
+        View::load('cart.checkout', $data, 'themes', false, false, false);
+    }
+
+
+    public function register(Request $request)
+    {
+
+        if (!Auth::is_login()) {
+            if ($request->user['password'] == $request->user['re-password']) {
+                $user = array(
+                    'name' => $request->user['name'],
+                    'lastname' => $request->user['lastname'],
+                    'email' => $request->user['email'],
+                    'password' => $request->user['password'],
+                    'phonenumber' => $request->user['phonenumber'],
+                    'created_at' => get_date(),
+                );
+
+               $user_id =  Auth::register($user)->id;
+            }
+
+        }else{
+            $user_id = Auth::is_login();
+        }
+
+        if(!$user_id){
+            Request::redirect('basket/checkout');
+        }
+
+
+
+
+
+
 
     }
 }

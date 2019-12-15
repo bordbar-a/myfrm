@@ -33,12 +33,12 @@ class SessionProvider extends AuthProvider{
         $data['email'] = strtolower($data['email']);
         $data['password'] = $this->generate_hash($data['password']);
 
-        $user_id = $this->userModel->create($data);
+        $new_user = $this->userModel->create($data);
 
-        if($user_id){
+        if($new_user){
             FlashMessage::add("ثبت نام با موفقیت انجام شد" , FlashMessage::SUCCESS);
             $this->login($data['email'] , $pass);
-            return $user_id;
+            return $new_user;
         }
 
         FlashMessage::add("مشکلی در هنگام ثبت نام رخ داده است." , FlashMessage::ERROR);

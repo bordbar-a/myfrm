@@ -28,12 +28,12 @@
 
                 <a href="#">
                     <i class="fa fa-menu-arrow pull-right"></i>
-                    <i class="main-icon fa fa-th-list"></i> <span>تنظیمات</span>
+                    <i class="main-icon fa fa-th-list"></i> <span>دسته‌بندی‌ها</span>
                 </a>
                 <ul>
                     <!-- submenus -->
                     <li><a href="<?= admin_url('category/add'); ?>">افزودن</a></li>
-                    <li><a href="<?= admin_url('category/list'); ?>">لیست تنظیمات</a></li>
+                    <li><a href="<?= admin_url('category/list'); ?>">لیست دسته‌بندی‌ها</a></li>
                 </ul>
             </li>
             <!-- end categories -->

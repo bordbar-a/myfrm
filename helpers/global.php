@@ -144,6 +144,7 @@ function get_page_header($page = 'index')
         '/file/list' =>'filelist',
         '/single/file' =>'filesingle',
         '/basket/list' =>'cart',
+        '/basket/checkout' =>'checkout',
     );
 
     $file_path = BASE_VIEW_PATH .

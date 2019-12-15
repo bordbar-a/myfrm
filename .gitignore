@@ -2,4 +2,5 @@
 .idea/
 vendor
 views/one/assets/images
+views/one/assets/images-local
 storage

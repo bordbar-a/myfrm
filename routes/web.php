@@ -48,6 +48,17 @@ return array (
         'target' => 'BasketController@list',
         'middleware' => ''
     ],
+    '/basket/checkout' => [
+        'method' => 'get',
+        'target' => 'BasketController@checkout',
+        'middleware' => ''
+    ],
+    '/basket/register' => [
+        'method' => 'post',
+        'target' => 'BasketController@register',
+        'middleware' => ''
+    ],
+
 
     '/basket/update' => [
         'method' => 'post',
@@ -59,6 +70,7 @@ return array (
         'target' => 'BasketController@item_remove',
         'middleware' => ''
     ],
+
 
 
 

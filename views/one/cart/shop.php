@@ -126,7 +126,7 @@
 
                                 <hr/>
 
-                                <a href="shop-checkout.html" class="btn btn-primary btn-lg btn-block size-15"><i
+                                <a href="<?= site_url('basket/checkout') ?>" class="btn btn-primary btn-lg btn-block size-15"><i
                                             class="fa fa-mail-forward"></i>ادامه فرایند خرید</a>
                             </div>
                         </div>

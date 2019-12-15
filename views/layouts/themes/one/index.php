@@ -36,7 +36,7 @@
 
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="<?= assets('css/header-1.css') ?>" rel="stylesheet" type="text/css"/>
-    <link href="<?= assets('css/layout-shop.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= assets('css/layout-shop.css') ?>" rel="stylesheet" type="text/css"/>
     <link href="<?= assets('css/color_scheme/green.css') ?>" rel="stylesheet" type="text/css" id="color_scheme"/>
 
     <!-- SWIE SLIDER -->
@@ -98,68 +98,69 @@
 
             Example Usage:  class="clearfix sticky header-sm transparent noborder"
         -->
-    <div id="header" class="sticky clearfix">
+    <?php if ($have_header): ?>
+        <div id="header" class="sticky clearfix">
 
-        <!-- TOP NAV -->
-        <header id="topNav">
-            <div class="container">
+            <!-- TOP NAV -->
+            <header id="topNav">
+                <div class="container">
 
-                <!-- Mobile Menu Button -->
-                <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
+                    <!-- Mobile Menu Button -->
+                    <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-                <!-- BUTTONS -->
-                <ul class="pull-right nav nav-pills nav-second-main">
+                    <!-- BUTTONS -->
+                    <ul class="pull-right nav nav-pills nav-second-main">
 
-                    <!-- SEARCH -->
-                    <li class="search">
-                        <a href="javascript:;">
-                            <i class="fa fa-search"></i>
-                        </a>
-                        <div class="search-box">
-                            <form action="page-search-result-1.html" method="get">
-                                <div class="input-group">
-                                    <input type="text" name="src" placeholder="Search" class="form-control"/>
-                                    <span class="input-group-btn">
+                        <!-- SEARCH -->
+                        <li class="search">
+                            <a href="javascript:;">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <div class="search-box">
+                                <form action="page-search-result-1.html" method="get">
+                                    <div class="input-group">
+                                        <input type="text" name="src" placeholder="Search" class="form-control"/>
+                                        <span class="input-group-btn">
                                             <button class="btn btn-primary" type="submit">Search</button>
                                         </span>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-                    <!-- /SEARCH -->
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <!-- /SEARCH -->
 
-                    <!-- QUICK SHOP CART -->
-                    <?php include_once theme_path('partials|cart.php', 'one') ?>
-                    <!-- /QUICK SHOP CART -->
+                        <!-- QUICK SHOP CART -->
+                        <?php include_once theme_path('partials|cart.php', 'one') ?>
+                        <!-- /QUICK SHOP CART -->
 
-                </ul>
-                <!-- /BUTTONS -->
+                    </ul>
+                    <!-- /BUTTONS -->
 
-                <!-- Logo -->
+                    <!-- Logo -->
 
-                <a class="logo pull-left" href="<?= admin_url(); ?>">
-                    <button type="button" class="btn btn-info margin-left-20">پنل ادمین</button>
-                </a>
-
-                <?php if(!\App\Services\Auth\Auth::is_login()): ?>
-                <a class="logo pull-left" href="<?= site_url('auth'); ?>">
-                    <button type="button" class="btn btn-info margin-left-20">ورود/ثبت‌نام</button>
-                </a>
-                <?php else:?>
-                    <a class="logo pull-left" href="<?= site_url('auth/logout'); ?>">
-                        <button type="button" class="btn btn-info margin-left-20">خروج</button>
+                    <a class="logo pull-left" href="<?= admin_url(); ?>">
+                        <button type="button" class="btn btn-info margin-left-20">پنل ادمین</button>
                     </a>
-                <?php endif;?>
 
-                <?php include_once theme_path('partials|menu.php', 'one'); ?>
-            </div>
-        </header>
-        <!-- /Top Nav -->
+                    <?php if (!\App\Services\Auth\Auth::is_login()): ?>
+                        <a class="logo pull-left" href="<?= site_url('auth'); ?>">
+                            <button type="button" class="btn btn-info margin-left-20">ورود/ثبت‌نام</button>
+                        </a>
+                    <?php else: ?>
+                        <a class="logo pull-left" href="<?= site_url('auth/logout'); ?>">
+                            <button type="button" class="btn btn-info margin-left-20">خروج</button>
+                        </a>
+                    <?php endif; ?>
 
-    </div>
+                    <?php include_once theme_path('partials|menu.php', 'one'); ?>
+                </div>
+            </header>
+            <!-- /Top Nav -->
 
+        </div>
+    <?php endif; ?>
 
     <!--
             PAGE HEADER
@@ -194,23 +195,24 @@
 
             </div>
 
-
+            <?php if ($have_pagination): ?>
             <!-- PAGINATION -->
             <ul class="pager">
                 <li class="previous"><a class="radius-0" href="#">&larr; Older</a></li>
                 <li class="next"><a class="radius-0" href="#">Newer &rarr;</a></li>
             </ul>
             <!-- /PAGINATION -->
-
+            <?php endif; ?>
         </div>
     </section>
     <!-- / -->
     <?php \App\Utilities\FlashMessage::show_messages(); ?>
 
-    <!-- FOOTER -->
-    <?php include_once theme_path('partials|footer.php', 'one') ?>
-    <!-- /FOOTER -->
-
+    <?php if ($have_footer): ?>
+        <!-- FOOTER -->
+        <?php include_once theme_path('partials|footer.php', 'one') ?>
+        <!-- /FOOTER -->
+    <?php endif; ?>
 </div>
 <!-- /wrapper -->
 
@@ -258,7 +260,7 @@
 
     });
 
-    $('.flash-message').click(function() {
+    $('.flash-message').click(function () {
         $(this).fadeOut();
     });
 </script>
